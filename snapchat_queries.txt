@@ -1,0 +1,472 @@
+
+SQL> -- Snapchat Database SQL Queries
+SQL> -- Project: Design and Implementation of Snapchat Database
+SQL> -- Student Name: Aishwarya Kamane
+
+SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+FRIENDSHIPS                    TABLE
+MESSAGES                       TABLE
+SNAPS                          TABLE
+STORIES                        TABLE
+USERS                          TABLE
+
+SQL> SELECT * FROM USERS;
+
+USER_ID USERNAME     EMAIL                     CREATED_AT                                                                                                                                               
+------- ------------ ------------------------- ------------                                                                                                                                             
+      1 rahul        rahul@gmail.com           01-JAN-26                                                                                                                                                
+      2 sneha        sneha@gmail.com           02-JAN-26                                                                                                                                                
+      3 rohan        rohan@gmail.com           03-JAN-26                                                                                                                                                
+      4 priya        priya@gmail.com           04-JAN-26                                                                                                                                                
+      5 amit         amit@gmail.com            05-JAN-26                                                                                                                                                
+      6 pooja        pooja@gmail.com           06-JAN-26                                                                                                                                                
+      7 nikhil       nikhil@gmail.com          07-JAN-26                                                                                                                                                
+      8 swapnil      swapnil@gmail.com         08-JAN-26                                                                                                                                                
+      9 anjali       anjali@gmail.com          09-JAN-26                                                                                                                                                
+     10 omkar        omkar@gmail.com           10-JAN-26                                                                                                                                                
+
+10 rows selected.
+
+SQL> SELECT * FROM FRIENDSHIPS;
+
+FRIENDSHIP_ID REQUESTER_ID ADDRESSEE_ID STATUS               CREATED_AT                                                                                                                                 
+------------- ------------ ------------ -------------------- ------------                                                                                                                               
+            1            1            2 accepted             11-JAN-26                                                                                                                                  
+            2            1            3 accepted             12-JAN-26                                                                                                                                  
+            3            2            4 pending              13-JAN-26                                                                                                                                  
+            4            3            5 accepted             14-JAN-26                                                                                                                                  
+            5            4            6 accepted             15-JAN-26                                                                                                                                  
+            6            5            7 pending              16-JAN-26                                                                                                                                  
+            7            6            8 accepted             17-JAN-26                                                                                                                                  
+            8            7            9 accepted             18-JAN-26                                                                                                                                  
+            9            8           10 pending              19-JAN-26                                                                                                                                  
+           10            2            5 accepted             20-JAN-26                                                                                                                                  
+           11            3            7 accepted             21-JAN-26                                                                                                                                  
+           12            4            9 pending              22-JAN-26                                                                                                                                  
+
+12 rows selected.
+
+SQL> SELECT * FROM SNAPS;
+
+   SNAP_ID  SENDER_ID RECIPIENT_ID MEDIA_TYPE           CREATED_AT                                                                                                                                      
+---------- ---------- ------------ -------------------- ------------                                                                                                                                    
+         1          1            2 image                23-JAN-26                                                                                                                                       
+         2          2            1 video                24-JAN-26                                                                                                                                       
+         3          3            5 image                25-JAN-26                                                                                                                                       
+         4          4            6 image                26-JAN-26                                                                                                                                       
+         5          5            7 video                27-JAN-26                                                                                                                                       
+         6          6            8 image                28-JAN-26                                                                                                                                       
+         7          7            9 image                29-JAN-26                                                                                                                                       
+         8          8           10 video                30-JAN-26                                                                                                                                       
+         9          9            1 image                31-JAN-26                                                                                                                                       
+        10         10            2 video                01-FEB-26                                                                                                                                       
+        11          1            3 image                02-FEB-26                                                                                                                                       
+        12          2            4 video                03-FEB-26                                                                                                                                       
+        13          3            6 image                04-FEB-26                                                                                                                                       
+        14          4            8 video                05-FEB-26                                                                                                                                       
+        15          5            9 image                06-FEB-26                                                                                                                                       
+
+15 rows selected.
+
+SQL> SELECT * FROM STORIES;
+
+  STORY_ID USER_ID MEDIA_TYPE           CREATED_AT                                                                                                                                                      
+---------- ------- -------------------- ------------                                                                                                                                                    
+         1       1 image                07-FEB-26                                                                                                                                                       
+         2       2 video                08-FEB-26                                                                                                                                                       
+         3       3 image                09-FEB-26                                                                                                                                                       
+         4       4 video                10-FEB-26                                                                                                                                                       
+         5       6 image                11-FEB-26                                                                                                                                                       
+         6       7 video                12-FEB-26                                                                                                                                                       
+         7       9 image                13-FEB-26                                                                                                                                                       
+         8      10 video                14-FEB-26                                                                                                                                                       
+
+8 rows selected.
+
+SQL> SELECT * FROM MESSAGES;
+
+MESSAGE_ID  SENDER_ID RECEIVER_ID CREATED_AT                                                                                                                                                            
+---------- ---------- ----------- ------------                                                                                                                                                          
+         1          1           2 15-FEB-26                                                                                                                                                             
+         2          2           1 15-FEB-26                                                                                                                                                             
+         3          3           5 16-FEB-26                                                                                                                                                             
+         4          5           3 16-FEB-26                                                                                                                                                             
+         5          4           6 17-FEB-26                                                                                                                                                             
+         6          6           4 17-FEB-26                                                                                                                                                             
+         7          7           9 18-FEB-26                                                                                                                                                             
+         8          9           7 18-FEB-26                                                                                                                                                             
+         9          8          10 19-FEB-26                                                                                                                                                             
+        10         10           8 19-FEB-26                                                                                                                                                             
+        11          1           3 20-FEB-26                                                                                                                                                             
+        12          3           1 20-FEB-26                                                                                                                                                             
+        13          2           4 21-FEB-26                                                                                                                                                             
+        14          4           2 21-FEB-26                                                                                                                                                             
+        15          5           7 22-FEB-26                                                                                                                                                             
+        16          7           5 22-FEB-26                                                                                                                                                             
+        17          6           8 23-FEB-26                                                                                                                                                             
+        18          8           6 23-FEB-26                                                                                                                                                             
+
+18 rows selected.
+
+
+SQL> -- Starting SQL queries USING WHERE, GROUP BY, HAVING, INNER JOIN, SUBQUERY and SINGLE ROW FUNCTIONS.
+
+SQL> --DISPLAY ALL USERS WHOSE USERNAME IS RAHUL.
+SQL> SELECT *
+  2  FROM USERS
+  3  WHERE USERNAME='rahul';
+
+USER_ID USERNAME     EMAIL                     CREATED_AT                                                                                                                                               
+------- ------------ ------------------------- ------------                                                                                                                                             
+      1 rahul        rahul@gmail.com           01-JAN-26                                                                                                                                                
+
+SQL> --DISPLAY ALL SNAPS WHERE MEDIA TYPE IS VIDEO.
+SQL> SELECT *
+  2  FROM SNAPS
+  3  WHERE MEDIA_TYPE='video';
+
+   SNAP_ID  SENDER_ID RECIPIENT_ID MEDIA_TYPE           CREATED_AT                                                                                                                                      
+---------- ---------- ------------ -------------------- ------------                                                                                                                                    
+         2          2            1 video                24-JAN-26                                                                                                                                       
+         5          5            7 video                27-JAN-26                                                                                                                                       
+         8          8           10 video                30-JAN-26                                                                                                                                       
+        10         10            2 video                01-FEB-26                                                                                                                                       
+        12          2            4 video                03-FEB-26                                                                                                                                       
+        14          4            8 video                05-FEB-26                                                                                                                                       
+
+6 rows selected.
+
+SQL> --COUNT THE NUMBER OF SNAPS SENT BY EACH USER.
+SQL> SELECT SENDER_ID, COUNT(*) AS TOTAL_SNAPS
+  2  FROM SNAPS
+  3  GROUP BY SENDER_ID;
+
+ SENDER_ID TOTAL_SNAPS                                                                                                                                                                                  
+---------- -----------                                                                                                                                                                                  
+         1           2                                                                                                                                                                                  
+         6           1                                                                                                                                                                                  
+         2           2                                                                                                                                                                                  
+         4           2                                                                                                                                                                                  
+         5           2                                                                                                                                                                                  
+         8           1                                                                                                                                                                                  
+         3           2                                                                                                                                                                                  
+         7           1                                                                                                                                                                                  
+         9           1                                                                                                                                                                                  
+        10           1                                                                                                                                                                                  
+
+10 rows selected.
+
+SQL> --COUNT THE NUMBER OF MESSAGES SENT BY EACH USER.
+SQL> SELECT SENDER_ID, COUNT(*) AS TOTAL_MESSAGES
+  2  FROM MESSAGES
+  3  GROUP BY SENDER_ID;
+
+ SENDER_ID TOTAL_MESSAGES                                                                                                                                                                               
+---------- --------------                                                                                                                                                                               
+         1              2                                                                                                                                                                               
+         6              2                                                                                                                                                                               
+         2              2                                                                                                                                                                               
+         5              2                                                                                                                                                                               
+         4              2                                                                                                                                                                               
+         8              2                                                                                                                                                                               
+         3              2                                                                                                                                                                               
+         7              2                                                                                                                                                                               
+         9              1                                                                                                                                                                               
+        10              1                                                                                                                                                                               
+
+10 rows selected.
+
+SQL> --DISPLAY USERS WHO HAVE SENT MORE THAN 1 SNAP
+SQL> SELECT SENDER_ID, COUNT(*)
+  2  FROM SNAPS
+  3  GROUP BY SENDER_ID
+  4  HAVING COUNT(*)>1;
+
+ SENDER_ID   COUNT(*)                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+         1          2                                                                                                                                                                                   
+         2          2                                                                                                                                                                                   
+         4          2                                                                                                                                                                                   
+         5          2                                                                                                                                                                                   
+         3          2                                                                                                                                                                                   
+
+SQL> --DISPLAY USERS WHO HAVE SENT MORE THAN 1 MESSAGE.
+SQL> SELECT SENDER_ID, COUNT(*)
+  2  FROM MESSAGES
+  3  GROUP BY SENDER_ID
+  4  HAVING COUNT(*)>1;
+
+ SENDER_ID   COUNT(*)                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+         1          2                                                                                                                                                                                   
+         6          2                                                                                                                                                                                   
+         2          2                                                                                                                                                                                   
+         5          2                                                                                                                                                                                   
+         4          2                                                                                                                                                                                   
+         8          2                                                                                                                                                                                   
+         3          2                                                                                                                                                                                   
+         7          2                                                                                                                                                                                   
+
+8 rows selected.
+
+SQL> --FIND USERS WHO SENT MORE THAN ONE IMAGE SNAP.
+SQL> SELECT SENDER_ID, COUNT(*)
+  2  FROM SNAPS
+  3  WHERE MEDIA_TYPE='image'
+  4  GROUP BY SENDER_ID
+  5  HAVING COUNT(*)>1;
+
+ SENDER_ID   COUNT(*)                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+         1          2                                                                                                                                                                                   
+         3          2                                                                                                                                                                                   
+
+SQL> --FIND REQUESTERS WHO HAVE MORE THAN ONE ACCEPTED FRIENDSHIP.
+SQL> SELECT REQUESTER_ID, COUNT(*)
+  2  FROM FRIENDSHIPS
+  3  WHERE STATUS='accepted'
+  4  GROUP BY REQUESTER_ID
+  5  HAVING COUNT(*)>1;
+
+REQUESTER_ID   COUNT(*)                                                                                                                                                                                 
+------------ ----------                                                                                                                                                                                 
+           1          2                                                                                                                                                                                 
+           3          2                                                                                                                                                                                 
+
+SQL> --FIND USERS WHO SENT MORE THAN ONE MESSAGE AFTER 16-FEB-26.
+SQL> SELECT SENDER_ID, COUNT(*)
+  2  FROM MESSAGES
+  3  WHERE CREATED_AT > TO_DATE('16-FEB-2026','DD-MON-YYYY')
+  4  GROUP BY SENDER_ID
+  5  HAVING COUNT(*)>1;
+
+ SENDER_ID   COUNT(*)                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+         6          2                                                                                                                                                                                   
+         4          2                                                                                                                                                                                   
+         8          2                                                                                                                                                                                   
+         7          2                                                                                                                                                                                   
+
+SQL> --DISPLAY USERNAME AND STORY MEDIA TYPE.
+SQL> SELECT U.USERNAME, S.MEDIA_TYPE
+  2  FROM USERS U
+  3  INNER JOIN STORIES S
+  4  ON U.USER_ID=S.USER_ID;
+
+USERNAME     MEDIA_TYPE                                                                                                                                                                                 
+------------ --------------------                                                                                                                                                                       
+rahul        image                                                                                                                                                                                      
+sneha        video                                                                                                                                                                                      
+rohan        image                                                                                                                                                                                      
+priya        video                                                                                                                                                                                      
+pooja        image                                                                                                                                                                                      
+nikhil       video                                                                                                                                                                                      
+anjali       image                                                                                                                                                                                      
+omkar        video                                                                                                                                                                                      
+
+8 rows selected.
+
+SQL> --DISPLAY USERNAME AND SNAP MEDIA TYPE.
+SQL> SELECT U.USERNAME, S.MEDIA_TYPE
+  2  FROM USERS U
+  3  INNER JOIN SNAPS S
+  4  ON U.USER_ID=S.SENDER_ID;
+
+USERNAME     MEDIA_TYPE                                                                                                                                                                                 
+------------ --------------------                                                                                                                                                                       
+rahul        image                                                                                                                                                                                      
+sneha        video                                                                                                                                                                                      
+rohan        image                                                                                                                                                                                      
+priya        image                                                                                                                                                                                      
+amit         video                                                                                                                                                                                      
+pooja        image                                                                                                                                                                                      
+nikhil       image                                                                                                                                                                                      
+swapnil      video                                                                                                                                                                                      
+anjali       image                                                                                                                                                                                      
+omkar        video                                                                                                                                                                                      
+rahul        image                                                                                                                                                                                      
+sneha        video                                                                                                                                                                                      
+rohan        image                                                                                                                                                                                      
+priya        video                                                                                                                                                                                      
+amit         image                                                                                                                                                                                      
+
+15 rows selected.
+
+SQL> --DISPLAY USERNAME WHO SENT IMAGE SNAPS.
+SQL> SELECT U.USERNAME, S.MEDIA_TYPE
+  2  FROM USERS U
+  3  INNER JOIN SNAPS S
+  4  ON U.USER_ID=S.SENDER_ID
+  5  WHERE S.MEDIA_TYPE='image';
+
+USERNAME     MEDIA_TYPE                                                                                                                                                                                 
+------------ --------------------                                                                                                                                                                       
+rahul        image                                                                                                                                                                                      
+rohan        image                                                                                                                                                                                      
+priya        image                                                                                                                                                                                      
+pooja        image                                                                                                                                                                                      
+nikhil       image                                                                                                                                                                                      
+anjali       image                                                                                                                                                                                      
+rahul        image                                                                                                                                                                                      
+rohan        image                                                                                                                                                                                      
+amit         image                                                                                                                                                                                      
+
+9 rows selected.
+
+SQL> --DISPLAY USERNAMES WHO POSTED VIDEO STORIES
+SQL> SELECT U.USERNAME, S.MEDIA_TYPE
+  2  FROM USERS U
+  3  INNER JOIN STORIES S
+  4  ON U.USER_ID=S.USER_ID
+  5  WHERE S.MEDIA_TYPE='video';
+
+USERNAME     MEDIA_TYPE                                                                                                                                                                                 
+------------ --------------------                                                                                                                                                                       
+sneha        video                                                                                                                                                                                      
+priya        video                                                                                                                                                                                      
+nikhil       video                                                                                                                                                                                      
+omkar        video                                                                                                                                                                                      
+
+SQL> --DISPLAY USERNAMES OF USERS WHO SENT SNAPS;
+SQL> SELECT USERNAME
+  2  FROM USERS
+  3  WHERE USER_ID IN
+  4  (SELECT SENDER_ID FROM SNAPS);
+
+USERNAME                                                                                                                                                                                                
+------------                                                                                                                                                                                            
+rahul                                                                                                                                                                                                   
+sneha                                                                                                                                                                                                   
+rohan                                                                                                                                                                                                   
+priya                                                                                                                                                                                                   
+amit                                                                                                                                                                                                    
+pooja                                                                                                                                                                                                   
+nikhil                                                                                                                                                                                                  
+swapnil                                                                                                                                                                                                 
+anjali                                                                                                                                                                                                  
+omkar                                                                                                                                                                                                   
+
+10 rows selected.
+
+SQL> --DISPLAY USERNAMES OF USERS WHO POSTED STORIES.
+SQL> SELECT USERNAME
+  2  FROM USERS
+  3  WHERE USER_ID IN
+  4  (SELECT USER_ID FROM STORIES);
+
+USERNAME                                                                                                                                                                                                
+------------                                                                                                                                                                                            
+rahul                                                                                                                                                                                                   
+sneha                                                                                                                                                                                                   
+rohan                                                                                                                                                                                                   
+priya                                                                                                                                                                                                   
+pooja                                                                                                                                                                                                   
+nikhil                                                                                                                                                                                                  
+anjali                                                                                                                                                                                                  
+omkar                                                                                                                                                                                                   
+
+8 rows selected.
+
+SQL> --FIND USERNAMES WHO SENT MORE THAN 1 SNAP.
+SQL> SELECT USERNAME
+  2  FROM USERS
+  3  WHERE USER_ID IN
+  4  (
+  5  SELECT SENDER_ID
+  6  FROM SNAPS
+  7  GROUP BY SENDER_ID
+  8  HAVING COUNT(*)>1
+  9  );
+
+USERNAME                                                                                                                                                                                                
+------------                                                                                                                                                                                            
+rahul                                                                                                                                                                                                   
+priya                                                                                                                                                                                                   
+sneha                                                                                                                                                                                                   
+amit                                                                                                                                                                                                    
+rohan                                                                                                                                                                                                   
+
+SQL> --DISPLAY USERNAMES WHO SENT MESSAGES.
+SQL> Display usernames who sent messages.
+SP2-0734: unknown command beginning "Display us..." - rest of line ignored.
+SQL> SELECT USERNAME
+  2  FROM USERS
+  3  WHERE USER_ID IN
+  4  (SELECT SENDER_ID FROM MESSAGES);
+
+USERNAME                                                                                                                                                                                                
+------------                                                                                                                                                                                            
+rahul                                                                                                                                                                                                   
+sneha                                                                                                                                                                                                   
+rohan                                                                                                                                                                                                   
+amit                                                                                                                                                                                                    
+priya                                                                                                                                                                                                   
+pooja                                                                                                                                                                                                   
+nikhil                                                                                                                                                                                                  
+anjali                                                                                                                                                                                                  
+swapnil                                                                                                                                                                                                 
+omkar                                                                                                                                                                                                   
+
+10 rows selected.
+
+SQL> --DISPLAY USERNAMES IN UPPERCASE.
+SQL> SELECT UPPER(USERNAME)
+  2  FROM USERS;
+
+UPPER(USERNAME)                                                                                                                                                                                         
+--------------------------------------------------                                                                                                                                                      
+AMIT                                                                                                                                                                                                    
+ANJALI                                                                                                                                                                                                  
+NIKHIL                                                                                                                                                                                                  
+OMKAR                                                                                                                                                                                                   
+POOJA                                                                                                                                                                                                   
+PRIYA                                                                                                                                                                                                   
+RAHUL                                                                                                                                                                                                   
+ROHAN                                                                                                                                                                                                   
+SNEHA                                                                                                                                                                                                   
+SWAPNIL                                                                                                                                                                                                 
+
+10 rows selected.
+
+SQL> --DISPLAY USERNAMES AND THEIR LENGTH.
+SQL> SELECT USERNAME, LENGTH(USERNAME)
+  2  FROM USERS;
+
+USERNAME     LENGTH(USERNAME)                                                                                                                                                                           
+------------ ----------------                                                                                                                                                                           
+amit                        4                                                                                                                                                                           
+anjali                      6                                                                                                                                                                           
+nikhil                      6                                                                                                                                                                           
+omkar                       5                                                                                                                                                                           
+pooja                       5                                                                                                                                                                           
+priya                       5                                                                                                                                                                           
+rahul                       5                                                                                                                                                                           
+rohan                       5                                                                                                                                                                           
+sneha                       5                                                                                                                                                                           
+swapnil                     7                                                                                                                                                                           
+
+10 rows selected.
+
+SQL> --DISPLAY FIRST 3 CHARACTERS OF USERNAMES.
+SQL> SELECT USERNAME, SUBSTR(USERNAME,1,3)
+  2  FROM USERS;
+
+USERNAME     SUBSTR(USERN                                                                                                                                                                               
+------------ ------------                                                                                                                                                                               
+amit         ami                                                                                                                                                                                        
+anjali       anj                                                                                                                                                                                        
+nikhil       nik                                                                                                                                                                                        
+omkar        omk                                                                                                                                                                                        
+pooja        poo                                                                                                                                                                                        
+priya        pri                                                                                                                                                                                        
+rahul        rah                                                                                                                                                                                        
+rohan        roh                                                                                                                                                                                        
+sneha        sne                                                                                                                                                                                        
+swapnil      swa                                                                                                                                                                                        
+
+10 rows selected.
+
+SQL> SPOOL OFF;
